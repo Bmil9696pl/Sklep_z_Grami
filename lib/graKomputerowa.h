@@ -12,6 +12,7 @@ protected:
     string wymagania;
 public:
     GraKomputerowa(string n, double c, string o, string w);
+    GraKomputerowa(string n);
     GraKomputerowa operator+(const GraKomputerowa rhs);
     void opisGry();
 };

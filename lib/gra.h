@@ -6,7 +6,7 @@
 #define SKLEP_Z_GRAMI_GRA_H
 
 #include <iostream>
-#include "string.h"
+#include <string>
 using namespace std;
 
 
@@ -18,7 +18,9 @@ protected:
     string opis;
 
 public:
-    virtual void opisGry();
+    virtual void opisGry(){
+        cout << nazwa << endl;
+    };
 };
 
 #endif //SKLEP_Z_GRAMI_GRA_H

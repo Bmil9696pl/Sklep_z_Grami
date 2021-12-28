@@ -13,6 +13,7 @@ protected:
     int nKart;
 public:
     GraKarciana(string n, double c, string o, int nk, int np);
+    GraKarciana(string n);
     void opisGry();
     GraKarciana operator+(const GraKarciana rhs);
 };
