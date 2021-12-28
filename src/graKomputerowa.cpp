@@ -1,5 +1,7 @@
 #include "../lib/graKomputerowa.h"
 
+arr::Type GraKomputerowa::GetType() { return arr::komputerowa;}
+
 GraKomputerowa::GraKomputerowa(string n, double c, string o, string w):
 wymagania(w)
 {

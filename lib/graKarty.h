@@ -7,11 +7,12 @@
 
 #include "./gra.h"
 
-struct GraKarciana : public Gra{
+struct GraKarciana : public arr::Gra{
 protected:
     int nPaczek;
     int nKart;
 public:
+    arr::Type GetType();
     GraKarciana(string n, double c, string o, int nk, int np);
     GraKarciana(string n);
     void opisGry();

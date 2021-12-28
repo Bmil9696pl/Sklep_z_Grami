@@ -1,5 +1,6 @@
 #include "graKarty.h"
 
+arr::Type GraKarciana::GetType() { return arr::karciana; }
 
 GraKarciana::GraKarciana(string n, double c, string o, int nk, int np):
 nKart(nk),

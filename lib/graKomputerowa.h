@@ -7,10 +7,11 @@
 
 #include "./gra.h"
 
-class GraKomputerowa : public Gra {
+class GraKomputerowa : public arr::Gra {
 protected:
     string wymagania;
 public:
+    arr::Type GetType();
     GraKomputerowa(string n, double c, string o, string w);
     GraKomputerowa(string n);
     GraKomputerowa operator+(const GraKomputerowa rhs);
