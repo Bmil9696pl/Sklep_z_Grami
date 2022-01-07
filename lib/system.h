@@ -5,11 +5,27 @@
 #ifndef SKLEP_Z_GRAMI_SYSTEM_H
 #define SKLEP_Z_GRAMI_SYSTEM_H
 
+#include "../lib/gra.h"
+#include "../lib/graKarty.h"
+#include "../lib/graKomputerowa.h"
 #include <iostream>
 #include "vector"
 #include <string>
 #include "fstream"
 using namespace std;
+
+struct zakupy{
+    int type = NULL; //0 - karty, 1 - komputerowa
+    GraKarciana kart;
+    GraKomputerowa komp;
+    zakupy* next = NULL;
+};
+
+//void zapiszZakupy(zakupy zakupy);
+
+void addListKarciana(vector<GraKarciana> vektor, string nazwa, zakupy *zakupy);
+
+void addListKomputerowa(vector<GraKomputerowa> vektor, string nazwa, zakupy *zakupy);
 
 template <class type>
 vector<type> loadShelves(string file){

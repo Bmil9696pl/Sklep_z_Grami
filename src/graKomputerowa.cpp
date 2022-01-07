@@ -1,6 +1,11 @@
 #include "../lib/graKomputerowa.h"
 
-arr::Type GraKomputerowa::GetType() { return arr::komputerowa;}
+GraKomputerowa::GraKomputerowa() {
+    nazwa = nullptr;
+    wymagania = nullptr;
+    cena = 0;
+    opis = nullptr;
+}
 
 GraKomputerowa::GraKomputerowa(string n, double c, string o, string w):
 wymagania(w)
@@ -10,9 +15,6 @@ wymagania(w)
     opis = o;
 }
 
-GraKomputerowa GraKomputerowa::operator+(const GraKomputerowa rhs) {
-    return{nazwa + rhs.nazwa, cena + rhs.cena, opis + rhs.opis, wymagania};
-}
 
 //uncharted;160,25;gra przygodowa, rpg;ps4 exlusive
 
@@ -49,4 +51,12 @@ void GraKomputerowa::opisGry() {
     cout << cena << endl;
     cout << opis << endl;
     cout << wymagania << endl;
+}
+
+GraKomputerowa &GraKomputerowa::operator=(const GraKomputerowa &rhs) {
+    nazwa = rhs.nazwa;
+    wymagania = rhs.wymagania;
+    cena = rhs.cena;
+    opis = rhs.opis;
+    return *this;
 }

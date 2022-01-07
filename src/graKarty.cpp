@@ -1,6 +1,12 @@
-#include "graKarty.h"
+#include "../lib/graKarty.h"
 
-arr::Type GraKarciana::GetType() { return arr::karciana; }
+GraKarciana::GraKarciana() {
+    nazwa = nullptr;
+    cena = 0;
+    opis = nullptr;
+    nPaczek = 0;
+    nKart = 0;
+}
 
 GraKarciana::GraKarciana(string n, double c, string o, int nk, int np):
 nKart(nk),
@@ -11,7 +17,7 @@ nPaczek(np)
     opis = o;
 }
 
-GraKarciana GraKarciana::operator+(const GraKarciana rhs) {
+GraKarciana GraKarciana::operator+=(const GraKarciana rhs) {
     return {nazwa + rhs.nazwa, cena + rhs.cena, opis + rhs.opis, nKart + rhs.nKart, nPaczek + rhs.nPaczek };
 }
 
@@ -54,4 +60,13 @@ void GraKarciana::opisGry() {
     cout << nazwa << endl;
     cout << nKart << " w " << nPaczek << " paczkach" << endl;
     cout << opis << endl;
+}
+
+GraKarciana& GraKarciana::operator=(GraKarciana const &a){
+    nazwa = a.nazwa;
+    cena = a.cena;
+    opis = a.opis;
+    nPaczek = a.nPaczek;
+    nKart = a.nKart;
+    return * this;
 }

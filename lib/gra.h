@@ -9,24 +9,15 @@
 #include <string>
 using namespace std;
 
-namespace arr {
-    enum Type {
-        komputerowa,
-        karciana,
-    };
 
-
-    struct Gra {
-    protected:
+    class Gra {
+    public:
 
         string nazwa;
         double cena;
         string opis;
-    public:
-        virtual arr::Type GetType() = 0;
 
         virtual void opisGry() = 0;
     };
-}
 
 #endif //SKLEP_Z_GRAMI_GRA_H

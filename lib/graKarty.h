@@ -7,16 +7,17 @@
 
 #include "./gra.h"
 
-struct GraKarciana : public arr::Gra{
+class GraKarciana : public Gra{
 protected:
     int nPaczek;
     int nKart;
 public:
-    arr::Type GetType();
+    GraKarciana();
     GraKarciana(string n, double c, string o, int nk, int np);
     GraKarciana(string n);
     void opisGry();
-    GraKarciana operator+(const GraKarciana rhs);
+    GraKarciana operator+=(const GraKarciana rhs);
+    GraKarciana& operator=(GraKarciana const &a);
 };
 
 #endif //SKLEP_Z_GRAMI_GRAKARTY_H
