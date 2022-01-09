@@ -11,21 +11,29 @@
 #include <iostream>
 #include "vector"
 #include <string>
-#include "fstream"
 using namespace std;
 
-struct zakupy{
-    int type = NULL; //0 - karty, 1 - komputerowa
-    GraKarciana kart;
-    GraKomputerowa komp;
-    zakupy* next = NULL;
+class ListaZakupow{
+protected:
+    vector<Gra*> Lista;
+
+public:
+    ListaZakupow();
+    ~ListaZakupow();
+    void dodajProdukt(GraKarciana *pKarciana);
+    void dodajProdukt(GraKomputerowa *pKomputerowa);
+    void zapisz();
 };
+
+GraKarciana* znajdzNaPolce(vector<GraKarciana> polkaKarciane, string nazwa);
+
+GraKomputerowa znajdzNaPolce(vector<GraKomputerowa> polkaKomputerowe, string nazwa);
 
 //void zapiszZakupy(zakupy zakupy);
 
-void addListKarciana(vector<GraKarciana> vektor, string nazwa, zakupy *zakupy);
+//void addListKarciana(vector<GraKarciana> vektor, string nazwa, Lista *zakupy);
 
-void addListKomputerowa(vector<GraKomputerowa> vektor, string nazwa, zakupy *zakupy);
+//void addListKomputerowa(vector<GraKomputerowa> vektor, string nazwa, Lista *zakupy);
 
 template <class type>
 vector<type> loadShelves(string file){

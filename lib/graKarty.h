@@ -13,9 +13,13 @@ protected:
     int nKart;
 public:
     GraKarciana();
+    ~GraKarciana();
     GraKarciana(string n, double c, string o, int nk, int np);
-    GraKarciana(string n);
+    explicit GraKarciana(string n);
+    string podajNazwe();
     void opisGry();
+    void zapisz();
+    GraKarciana* kupKarty(GraKarciana kart);
     GraKarciana operator+=(const GraKarciana rhs);
     GraKarciana& operator=(GraKarciana const &a);
 };

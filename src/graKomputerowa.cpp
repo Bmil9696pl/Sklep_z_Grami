@@ -1,10 +1,26 @@
 #include "../lib/graKomputerowa.h"
 
+void GraKomputerowa::zapisz() {
+    ofstream output;
+    output.open("C:/Users/bartek/CLionProjects/Sklep_z_Grami/zakupy", ios::app);
+    output << nazwa << endl;
+    output << cena << endl;
+    output << opis << endl;
+    output << wymagania << endl;
+    output << endl;
+    output.close();
+}
+
+string GraKomputerowa::podajNazwe() {
+    return nazwa;
+}
+
 GraKomputerowa::GraKomputerowa() {
-    nazwa = nullptr;
-    wymagania = nullptr;
-    cena = 0;
-    opis = nullptr;
+
+}
+
+GraKomputerowa::~GraKomputerowa() noexcept {
+
 }
 
 GraKomputerowa::GraKomputerowa(string n, double c, string o, string w):

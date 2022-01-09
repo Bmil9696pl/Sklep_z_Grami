@@ -1,11 +1,37 @@
 #include "../lib/graKarty.h"
 
+GraKarciana *GraKarciana::kupKarty(GraKarciana kart) {
+    GraKarciana ret;
+    int ilosc;
+    ret = kart;
+    cout << "ile paczek chesz kupic?" << endl;
+    cin >> ilosc;
+    for(int i = 1; i < ilosc ; ++i){
+        ret+=kart;
+    }
+    return &ret;
+}
+
+string GraKarciana::podajNazwe() {
+    return nazwa;
+}
+
+void GraKarciana::zapisz() {
+    ofstream output;
+    output.open("C:/Users/bartek/CLionProjects/Sklep_z_Grami/zakupy", ios::app);
+    output << nazwa << endl;
+    output << nKart << " w " << nPaczek << " paczkach" << endl;
+    output << opis << endl;
+    output << endl;
+    output.close();
+}
+
 GraKarciana::GraKarciana() {
-    nazwa = nullptr;
-    cena = 0;
-    opis = nullptr;
-    nPaczek = 0;
-    nKart = 0;
+
+}
+
+GraKarciana::~GraKarciana() noexcept {
+
 }
 
 GraKarciana::GraKarciana(string n, double c, string o, int nk, int np):

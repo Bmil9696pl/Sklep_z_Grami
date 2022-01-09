@@ -8,55 +8,53 @@ void zapiszZakupy(zakupy zakupy){
     }
 }*/
 
-void addListKarciana(vector<GraKarciana> vektor, string nazwa, zakupy *zakupy){
-    GraKarciana pomKart;
-    struct zakupy* lista = zakupy;
-    for(auto& x: vektor) {
-        if (x.nazwa == nazwa) {
-            pomKart = x;
-        }
+
+
+ListaZakupow::ListaZakupow() {}
+
+ListaZakupow::~ListaZakupow() {
+    /*for(auto i = Lista.begin(); i != Lista.end(); i++){
+        delete *i;
     }
-    while(true){
-        GraKarciana pom = lista->kart;
-        if(pom.nazwa == pomKart.nazwa){
-            pomKart += pom;
-            lista->kart = pomKart;
-            return;
-        }
-        else if(lista->next == NULL && lista->type == NULL){
-            lista->kart = pomKart;
-            lista->type = 0;
-            return;
-        }
-        else if(lista->next == NULL){
-            struct zakupy* kolejnyPomocniczy;
-            kolejnyPomocniczy->kart = pomKart;
-            kolejnyPomocniczy->type = 0;
-            return;
-        }
-    }
+    Lista.clear();*/
 }
 
-void addListKomputerowa(vector<GraKomputerowa> vektor, string nazwa, zakupy *zakupy){
-    GraKomputerowa pomKomp;
-    struct zakupy* lista = zakupy;
-    for(auto& x: vektor) {
-        if (x.nazwa == nazwa) {
-            pomKomp = x;
+void ListaZakupow::dodajProdukt(GraKarciana *pKarciana) {
+    Lista.push_back(pKarciana);
+}
+
+void ListaZakupow::dodajProdukt(GraKomputerowa *pKomputerowa) {
+    Lista.push_back(pKomputerowa);
+}
+
+void ListaZakupow::zapisz() {
+    ofstream output;
+    output.open("C:/Users/bartek/CLionProjects/Sklep_z_Grami/zakupy", ios::app);
+    output << "Twoje zakupy:" << endl;
+    output << endl;
+    output.close();
+    for(auto i = Lista.begin(); i != Lista.end(); i++)
+        (*i)->zapisz();
+}
+
+GraKarciana *znajdzNaPolce(vector <GraKarciana> polkaKarciane, string nazwa) {
+    GraKarciana ret;
+    for(auto i = polkaKarciane.begin(); i!=polkaKarciane.end(); i++){
+        if(i->podajNazwe() == nazwa)
+            return ret.kupKarty(*i);
+    }
+    cout << "nie znalazlem takiej gry!" << endl;
+    return NULL;
+}
+
+GraKomputerowa znajdzNaPolce(vector<GraKomputerowa> polkaKomputerowe, string nazwa){
+    GraKomputerowa ret;
+    for(auto i = polkaKomputerowe.begin(); i!=polkaKomputerowe.end(); i++){
+        if(i->podajNazwe() == nazwa) {
+            ret = *i;
+            return ret;
         }
     }
-    while(true){
-        GraKomputerowa pom = lista->komp;
-        if(lista->next == NULL && lista->type == NULL){
-            lista->komp = pomKomp;
-            lista->type = 1;
-            return;
-        }
-        else if(lista->next == NULL){
-            struct zakupy* kolejnyPomocniczy;
-            kolejnyPomocniczy->komp = pomKomp;
-            kolejnyPomocniczy->type = 1;
-            return;
-        }
-    }
+    cout << "nie znalazlem takiej gry!" << endl;
+    return GraKomputerowa();
 }

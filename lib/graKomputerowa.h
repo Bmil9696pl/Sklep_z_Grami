@@ -12,10 +12,13 @@ protected:
     string wymagania;
 public:
     GraKomputerowa();
+    ~GraKomputerowa();
     GraKomputerowa(string n, double c, string o, string w);
-    GraKomputerowa(string n);
+    explicit GraKomputerowa(string n);
     GraKomputerowa& operator=(const GraKomputerowa &rhs);
     void opisGry();
+    string podajNazwe();
+    void zapisz();
 };
 
 #endif //SKLEP_Z_GRAMI_GRAKOMPUTEROWA_H

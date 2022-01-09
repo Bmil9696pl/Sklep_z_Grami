@@ -7,16 +7,21 @@
 
 #include <iostream>
 #include <string>
+#include "fstream"
 using namespace std;
 
 
     class Gra {
-    public:
+    protected:
 
         string nazwa;
         double cena;
         string opis;
 
+    public:
+        virtual ~Gra() {};
+        virtual void zapisz() = 0;
+        virtual string podajNazwe() = 0;
         virtual void opisGry() = 0;
     };
 
