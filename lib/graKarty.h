@@ -19,7 +19,7 @@ public:
     string podajNazwe();
     void opisGry();
     void zapisz();
-    GraKarciana* kupKarty(GraKarciana kart);
+    GraKarciana kupKarty(GraKarciana kart);
     GraKarciana operator+=(const GraKarciana rhs);
     GraKarciana& operator=(GraKarciana const &a);
 };

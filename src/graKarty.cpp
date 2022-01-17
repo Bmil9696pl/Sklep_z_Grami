@@ -1,6 +1,6 @@
 #include "../lib/graKarty.h"
 
-GraKarciana *GraKarciana::kupKarty(GraKarciana kart) {
+GraKarciana GraKarciana::kupKarty(GraKarciana kart) {
     GraKarciana ret;
     int ilosc;
     ret = kart;
@@ -9,7 +9,7 @@ GraKarciana *GraKarciana::kupKarty(GraKarciana kart) {
     for(int i = 1; i < ilosc ; ++i){
         ret+=kart;
     }
-    return &ret;
+    return ret;
 }
 
 string GraKarciana::podajNazwe() {
@@ -20,6 +20,7 @@ void GraKarciana::zapisz() {
     ofstream output;
     output.open("C:/Users/bartek/CLionProjects/Sklep_z_Grami/zakupy", ios::app);
     output << nazwa << endl;
+    output << cena << "zł" << endl;
     output << nKart << " w " << nPaczek << " paczkach" << endl;
     output << opis << endl;
     output << endl;
@@ -44,7 +45,10 @@ nPaczek(np)
 }
 
 GraKarciana GraKarciana::operator+=(const GraKarciana rhs) {
-    return {nazwa + rhs.nazwa, cena + rhs.cena, opis + rhs.opis, nKart + rhs.nKart, nPaczek + rhs.nPaczek };
+    this->nKart += rhs.nKart;
+    this->nPaczek += rhs.nPaczek;
+    this->cena += rhs.cena;
+    return *this;
 }
 
 //Magic the Gathering;8;trading card game stworzony przez Wizards of the Coast;10;1
@@ -84,6 +88,7 @@ GraKarciana::GraKarciana(string n) {
 
 void GraKarciana::opisGry() {
     cout << nazwa << endl;
+    cout << cena << "zl" << endl;
     cout << nKart << " w " << nPaczek << " paczkach" << endl;
     cout << opis << endl;
 }

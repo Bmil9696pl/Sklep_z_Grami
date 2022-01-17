@@ -37,14 +37,13 @@ void ListaZakupow::zapisz() {
         (*i)->zapisz();
 }
 
-GraKarciana *znajdzNaPolce(vector <GraKarciana> polkaKarciane, string nazwa) {
+GraKarciana znajdzNaPolce(vector <GraKarciana> polkaKarciane, string nazwa) {
     GraKarciana ret;
-    for(auto i = polkaKarciane.begin(); i!=polkaKarciane.end(); i++){
-        if(i->podajNazwe() == nazwa)
+    for (auto i = polkaKarciane.begin(); i != polkaKarciane.end(); i++) {
+        if (i->podajNazwe() == nazwa)
             return ret.kupKarty(*i);
     }
-    cout << "nie znalazlem takiej gry!" << endl;
-    return NULL;
+    throw "nie znaleziono obiektu o tej nazwie";
 }
 
 GraKomputerowa znajdzNaPolce(vector<GraKomputerowa> polkaKomputerowe, string nazwa){
@@ -55,6 +54,5 @@ GraKomputerowa znajdzNaPolce(vector<GraKomputerowa> polkaKomputerowe, string naz
             return ret;
         }
     }
-    cout << "nie znalazlem takiej gry!" << endl;
-    return GraKomputerowa();
+    throw "nie znaleziono obiektu o tej nazwie";
 }

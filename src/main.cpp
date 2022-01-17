@@ -3,6 +3,8 @@ using namespace std;
 
 
 int main() {
+    GraKarciana pomm;
+    GraKomputerowa pom;
     ListaZakupow lista;
     //GraKomputerowa uncharted("uncharted;160.25;gra przygodowa, rpg;ps4 exlusive");
     //GraKarciana magic("Magic the Gathering;8;trading card game stworzony przez Wizards of the Coast;10;1");
@@ -14,8 +16,20 @@ int main() {
     for(auto i : polkaKarciane){
         i.opisGry();
     }
-    GraKomputerowa pom = znajdzNaPolce(polkaKomputerowe, "The Witcher 3");
+    try {
+        pom = znajdzNaPolce(polkaKomputerowe, "The Witcher 3");
+    }
+    catch(const char* msg){
+        cout << msg << endl;
+    }
+    try {
+        pomm = znajdzNaPolce(polkaKarciane, "Magic the Gatherin");
+    }
+    catch(const char* msg){
+        cout << msg << endl;
+    }
     lista.dodajProdukt(&pom);
+    lista.dodajProdukt(&pomm);
     lista.zapisz();
     polkaKomputerowe.clear();
     polkaKarciane.clear();

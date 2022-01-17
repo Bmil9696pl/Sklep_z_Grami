@@ -25,7 +25,7 @@ public:
     void zapisz();
 };
 
-GraKarciana* znajdzNaPolce(vector<GraKarciana> polkaKarciane, string nazwa);
+GraKarciana znajdzNaPolce(vector<GraKarciana> polkaKarciane, string nazwa);
 
 GraKomputerowa znajdzNaPolce(vector<GraKomputerowa> polkaKomputerowe, string nazwa);
 

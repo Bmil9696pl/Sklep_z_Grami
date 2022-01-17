@@ -4,7 +4,7 @@ void GraKomputerowa::zapisz() {
     ofstream output;
     output.open("C:/Users/bartek/CLionProjects/Sklep_z_Grami/zakupy", ios::app);
     output << nazwa << endl;
-    output << cena << endl;
+    output << cena << "zł" << endl;
     output << opis << endl;
     output << wymagania << endl;
     output << endl;
@@ -64,7 +64,7 @@ GraKomputerowa::GraKomputerowa(string n) {
 
 void GraKomputerowa::opisGry() {
     cout << nazwa << endl;
-    cout << cena << endl;
+    cout << cena << "zl" << endl;
     cout << opis << endl;
     cout << wymagania << endl;
 }
