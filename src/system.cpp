@@ -37,13 +37,19 @@ void ListaZakupow::zapisz() {
         (*i)->zapisz();
 }
 
+Exception::Exception(string msg):messege(msg) {}
+
+string Exception::what() {
+    return messege;
+}
+
 GraKarciana znajdzNaPolce(vector <GraKarciana> polkaKarciane, string nazwa) {
     GraKarciana ret;
     for (auto i = polkaKarciane.begin(); i != polkaKarciane.end(); i++) {
         if (i->podajNazwe() == nazwa)
             return ret.kupKarty(*i);
     }
-    throw "nie znaleziono obiektu o tej nazwie";
+    throw Exception("nie znaleziono obiektu o tej nazwie");
 }
 
 GraKomputerowa znajdzNaPolce(vector<GraKomputerowa> polkaKomputerowe, string nazwa){
@@ -54,5 +60,5 @@ GraKomputerowa znajdzNaPolce(vector<GraKomputerowa> polkaKomputerowe, string naz
             return ret;
         }
     }
-    throw "nie znaleziono obiektu o tej nazwie";
+    throw Exception("nie znaleziono obiektu o tej nazwie");
 }

@@ -17,16 +17,16 @@ int main() {
         i.opisGry();
     }
     try {
-        pom = znajdzNaPolce(polkaKomputerowe, "The Witcher 3");
+        pom = znajdzNaPolce(polkaKomputerowe, "The Witcher ");
     }
-    catch(const char* msg){
-        cout << msg << endl;
+    catch(Exception exept){
+        cout << exept.what() << endl;
     }
     try {
-        pomm = znajdzNaPolce(polkaKarciane, "Magic the Gatherin");
+        pomm = znajdzNaPolce(polkaKarciane, "Magic the Gathering");
     }
-    catch(const char* msg){
-        cout << msg << endl;
+    catch(Exception exept){
+        cout << exept.what() << endl;
     }
     lista.dodajProdukt(&pom);
     lista.dodajProdukt(&pomm);

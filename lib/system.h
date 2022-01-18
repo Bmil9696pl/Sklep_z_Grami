@@ -11,6 +11,7 @@
 #include <iostream>
 #include "vector"
 #include <string>
+#include <exception>
 using namespace std;
 
 class ListaZakupow{
@@ -23,6 +24,14 @@ public:
     void dodajProdukt(GraKarciana *pKarciana);
     void dodajProdukt(GraKomputerowa *pKomputerowa);
     void zapisz();
+};
+
+class Exception: public exception{
+private:
+    string messege;
+public:
+    Exception(string msg);
+    string what();
 };
 
 GraKarciana znajdzNaPolce(vector<GraKarciana> polkaKarciane, string nazwa);
